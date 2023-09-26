@@ -43,8 +43,9 @@ function SplashScreen({ navigation }) {
 function FoodSearchScreen({ navigation }) {
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const API_KEY = 'c504eb40db4401743ca17df02c59d3af';
-  const API_ID = 'a9efe2b1';
+
+  const API_KEY = 'API_KEY';
+  const API_ID = 'API_ID';
 
   // edamam API 호출
   const GetRecipeSearchAPI = () => {
