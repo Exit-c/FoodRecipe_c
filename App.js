@@ -14,6 +14,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// 인트로 화면
 function SplashScreen({ navigation }) {
   useEffect(() => {
     // 일정 시간이 지난 후 인트로 화면을 종료하고 다음 화면으로 이동
@@ -38,12 +39,14 @@ function SplashScreen({ navigation }) {
   );
 }
 
+// 음식 검색 화면
 function FoodSearchScreen({ navigation }) {
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const API_KEY = 'c504eb40db4401743ca17df02c59d3af';
   const API_ID = 'a9efe2b1';
 
+  // edamam API 호출
   const GetRecipeSearchAPI = () => {
     fetch(
       `https://api.edamam.com/search?q=${searchText}&app_id=${API_ID}&app_key=${API_KEY}`
@@ -101,6 +104,7 @@ function FoodSearchScreen({ navigation }) {
   );
 }
 
+// 음식 정보제공 화면
 function RecipeScreen({ route, navigation }) {
   const recipe = route.params ? route.params.recipe : null;
   const ingredientLines = recipe ? recipe.ingredientLines : [];
@@ -166,7 +170,7 @@ export default function App() {
           component={FoodSearchScreen}
           options={{
             title: 'Food',
-            headerLeft: () => <></>,
+            headerLeft: () => <></>, // 뒤로가기 기능 제거
           }}
         />
         <Stack.Screen
